@@ -3,9 +3,11 @@ package service
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.encrypt.Encryptors
 import org.springframework.security.crypto.encrypt.TextEncryptor
+import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 import java.util.*
 
+@Component
 @Service("encryptionService")
 class EncryptionService {
     private val CHARACTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*&^%$#@!~{}[]+-&:,."

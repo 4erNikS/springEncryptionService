@@ -10,14 +10,24 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE"
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath group: 'org.whitesource', name: 'whitesource-gradle-plugin', version: '0.10'
     }
+
 }
 apply plugin: 'application'
 apply plugin: 'kotlin'
 // "bootRun" command for starting application
 apply plugin: 'org.springframework.boot'
-// Bindings between kotlin and spring
 apply plugin: 'kotlin-spring'
+apply plugin: 'whitesource'
+
+whitesource {
+    orgToken 'e5da971262e744f6b06c75b59e45ce501717219a49d44395917eff6c81423ecc' // replace with you organization token
+    productName 'testProduct for demonastration'
+}
+
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
 }
